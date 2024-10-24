@@ -1,25 +1,46 @@
-<div class="container mt-3">
-    <h2>Lista de Cursos</h2>
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Tema</th>
-                <th>Fecha de Inicio</th>
-                <th>Fecha de Fin</th>
-                <th>Docente</th>
-                <th>Precio</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let curso of cursos">
-                <td>{{ curso.id }}</td>
-                <td>{{ curso.tema.nombre }}</td>
-                <td>{{ curso.fechaInicio | date }}</td>
-                <td>{{ curso.fechaFin | date }}</td>
-                <td>{{ curso.docente.nombre }}</td> 
-                <td>${{ curso.precio.toFixed(2) }}</td> 
-            </tr>
-        </tbody>
-    </table>
+<!-- Tabla de cursos -->
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Tema</th>
+            <th>Fecha de Inicio</th>
+            <th>Fecha de Fin</th>
+            <th>Docente</th>
+            <th>Precio</th>
+            <th>Info</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let curso of cursos">
+            <td>{{ curso.id }}</td>
+            <td>{{ curso.tema.nombre }}</td>
+            <td>{{ curso.fechaInicio | date }}</td>
+            <td>{{ curso.fechaFin | date }}</td>
+            <td>{{ curso.docente.nombre }}</td>
+            <td>${{ curso.precio.toFixed(2) }}</td>
+            <td>
+                <button type="button" class="btn btn-outline-info" (click)="selectCurso(curso.id)" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal">
+                    <i class="bi bi-info-circle"></i>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <p>ID: {{ selectedCurso?.id }}</p>
+                <p>Tema: {{ selectedCurso?.tema.nombre }}</p>
+                <p>Fecha de Inicio: {{ selectedCurso?.fechaInicio | date }}</p>
+                <p>Fecha de Fin: {{ selectedCurso?.fechaFin | date }}</p>
+                <p>Docente: {{ selectedCurso?.docente.nombre }}</p>
+                <p>Precio: ${{ selectedCurso?.precio.toFixed(2) }}</p>
+            </div>
+        </div>
+    </div>
 </div>
