@@ -10,15 +10,13 @@ import { CursoService } from './services/curso.service';
 export class AppComponent {
   title = 'front-clase';
   cursos: Curso[] = [];
-  mensaje: string = '';
 
   constructor(private cursoService: CursoService) { }
 
   ngOnInit(): void {
-    this.getCursos();  // Llamar para cargar los cursos al iniciar
+    this.getCursos(); 
   }
 
-  // Método para obtener todos los cursos
   getCursos(): void {
     this.cursoService.getCursos().subscribe(
       (data: Curso[]) => {

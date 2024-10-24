@@ -1,0 +1,25 @@
+<div class="container mt-3">
+    <h2>Lista de Cursos</h2>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tema</th>
+                <th>Fecha de Inicio</th>
+                <th>Fecha de Fin</th>
+                <th>Docente</th>
+                <th>Precio</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let curso of cursos">
+                <td>{{ curso.id }}</td>
+                <td>{{ curso.tema.nombre }}</td> <!-- Suponiendo que 'nombre' es una propiedad de Tema -->
+                <td>{{ curso.fechaInicio | date }}</td>
+                <td>{{ curso.fechaFin | date }}</td>
+                <td>{{ curso.docente.nombre }}</td> <!-- Suponiendo que 'nombre' es una propiedad de Docente -->
+                <td>${{ curso.precio.toFixed(2) }}</td> <!-- Formato de precio -->
+            </tr>
+        </tbody>
+    </table>
+</div>
