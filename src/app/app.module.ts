@@ -21,7 +21,7 @@ import { AppRoutingModule } from './app.routes';
         CursosComponent,
         DocentesComponent,
         EstudiantesComponent,
-        TemasComponent
+        TemasComponent,
     ],
     imports: [
         BrowserModule, 

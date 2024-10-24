@@ -14,11 +14,11 @@
         <tbody>
             <tr *ngFor="let curso of cursos">
                 <td>{{ curso.id }}</td>
-                <td>{{ curso.tema.nombre }}</td> <!-- Suponiendo que 'nombre' es una propiedad de Tema -->
+                <td>{{ curso.tema.nombre }}</td>
                 <td>{{ curso.fechaInicio | date }}</td>
                 <td>{{ curso.fechaFin | date }}</td>
-                <td>{{ curso.docente.nombre }}</td> <!-- Suponiendo que 'nombre' es una propiedad de Docente -->
-                <td>${{ curso.precio.toFixed(2) }}</td> <!-- Formato de precio -->
+                <td>{{ curso.docente.nombre }}</td> 
+                <td>${{ curso.precio.toFixed(2) }}</td> 
             </tr>
         </tbody>
     </table>

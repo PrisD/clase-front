@@ -21,4 +21,5 @@ export class CursosComponent {
       this.cursos = data;
     });
   }
+
 }
