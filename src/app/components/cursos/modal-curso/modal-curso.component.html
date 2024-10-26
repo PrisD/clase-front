@@ -1,0 +1,54 @@
+<button type="button" class="btn btn-outline-info" (click)="selectCurso(curso.id)" data-bs-toggle="modal"
+    data-bs-target="#exampleModal">
+    <i class="bi bi-info-circle"></i>
+</button>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div *ngIf="curso" class="modal-body">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Curso ID: {{ curso.id }}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <form class="m-5">
+
+                    <div class="form-floating mb-3">
+                        <input type="date" class="form-control" id="fechaInicio" [(ngModel)]="curso.fechaInicio"
+                            name="fechaInicio">
+                        <label for="fechaInicio">Fecha de Inicio</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input type="date" class="form-control" id="fechaFin" [(ngModel)]="curso.fechaFin"
+                            name="fechaFin">
+                        <label for="fechaFin">Fecha de Fin</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <select class="form-select" id="docente" [(ngModel)]="curso.docente.nombre" name="docente">
+                            <option *ngFor="let d of docentes" [value]="curso.docente.nombre">{{ d.nombre }}</option>
+                        </select>
+                        <label for="docente">Docente</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <select class="form-select" id="temaDropdown" [(ngModel)]="curso.tema.nombre" name="temaDropdown">
+                            <option *ngFor="let t of temas" [value]="curso.tema.nombre">{{ t.nombre }}</option>
+                        </select>
+                        <label for="temaDropdown">Tema</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input type="number" class="form-control" id="precio" [(ngModel)]="curso.precio" name="precio">
+                        <label for="precio">Precio</label>
+                    </div>
+
+                    <button type="button" class="btn btn-success w-100 mt-3" (click)="updateCurso()">Editar
+                        curso</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

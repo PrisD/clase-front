@@ -20,27 +20,8 @@
             <td>{{ curso.docente.nombre }}</td>
             <td>${{ curso.precio.toFixed(2) }}</td>
             <td>
-                <button type="button" class="btn btn-outline-info" (click)="selectCurso(curso.id)" data-bs-toggle="modal"
-                    data-bs-target="#exampleModal">
-                    <i class="bi bi-info-circle"></i>
-                </button>
+                <app-modal-curso [id]="curso.id"></app-modal-curso>
             </td>
         </tr>
     </tbody>
 </table>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-body">
-                <p>ID: {{ selectedCurso?.id }}</p>
-                <p>Tema: {{ selectedCurso?.tema.nombre }}</p>
-                <p>Fecha de Inicio: {{ selectedCurso?.fechaInicio | date }}</p>
-                <p>Fecha de Fin: {{ selectedCurso?.fechaFin | date }}</p>
-                <p>Docente: {{ selectedCurso?.docente.nombre }}</p>
-                <p>Precio: ${{ selectedCurso?.precio.toFixed(2) }}</p>
-            </div>
-        </div>
-    </div>
-</div>
