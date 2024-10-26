@@ -16,7 +16,13 @@ export class ModalCursoComponent implements OnInit {
   curso!: Curso;
   temas: Tema[] = [];
   docentes: Docente[] = [];
-  constructor(private cursoService: CursoService, private temaService: TemaService, private docenteService: DocenteService) { }
+  flagEditar: boolean = false;
+
+  constructor(
+    private cursoService: CursoService,
+    private temaService: TemaService,
+    private docenteService: DocenteService
+  ) { }
 
   ngOnInit(): void {
     if (this.id) {
@@ -29,23 +35,30 @@ export class ModalCursoComponent implements OnInit {
   selectCurso(id: number): void {
     this.cursoService.getCurso(id).subscribe((curso: Curso) => {
       this.curso = curso;
+      this.flagEditar = false; 
       console.log(this.curso);
-
     });
   }
-  getTemas() {
+
+  getTemas(): void {
     this.temaService.getTemas().subscribe((temas: Tema[]) => {
       this.temas = temas;
-    })
+    });
   }
-  getDocentes() {
+
+  getDocentes(): void {
     this.docenteService.getDocentes().subscribe((docentes: Docente[]) => {
       this.docentes = docentes;
-    }
-  )
+    });
   }
 
-  updateCurso() {
-
+  toggleEdit(): void {
+    this.flagEditar = !this.flagEditar;
   }
+
+  putCurso(): void {
+    this.toggleEdit();
+    console.log('Curso actualizado:', this.curso);
+  }
+
 }
