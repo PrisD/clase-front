@@ -5,7 +5,7 @@ import { Tema } from '../../../model/tema.model';
 import { Docente } from '../../../model/docente.model';
 import { TemaService } from '../../../services/tema.service';
 import { DocenteService } from '../../../services/docente.service';
-
+declare var $: any;
 @Component({
   selector: 'app-modal-curso',
   templateUrl: './modal-curso.component.html',
@@ -63,6 +63,11 @@ export class ModalCursoComponent implements OnInit {
   compareEntidad(e1: any, e2: any): boolean {
     return e1 && e2 ? e1.nombre === e2.nombre : e1 === e2;
   }
-
-
+  eliminarCurso() {
+    this.cursoService.deleteCurso(this.id).subscribe((response) =>
+    { this.cerrarModal(); })
+  }
+  cerrarModal() {
+    $('#exampleModal').modal('hide');
+  }
 }

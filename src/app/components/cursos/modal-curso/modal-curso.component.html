@@ -1,4 +1,4 @@
-<button type="button" class="btn btn-outline-info" (click)="selectCurso(curso.id)" data-bs-toggle="modal"
+<button type="button" class="btn btn-outline-info rounded-5" (click)="selectCurso(id)" data-bs-toggle="modal"
     data-bs-target="#exampleModal">
     <i class="bi bi-info-circle"></i>
 </button>
@@ -43,9 +43,12 @@
                             [(ngModel)]="curso.precio" name="precio">
                         <label for="precio">Precio</label>
                     </div>
-                    <div *ngIf="!flagEditar">
+                    <div *ngIf="!flagEditar"  class="d-flex flex-column justify-content-center">
                         <button type="button" class="btn btn-success w-100 mt-3" (click)="toggleEdit()">Editar
                             curso</button>
+                        <a class="text-decoration-underline w-100 mt-3 text-danger text-center cursor-pointer" (click)="eliminarCurso()">
+                            <i class="bi bi-trash me-2"></i> Eliminar curso
+                        </a>
                     </div>
                     <div *ngIf="flagEditar" class="d-flex flex-column justify-content-center">
                         <button type="button" class="btn btn-success w-100 mt-3" (click)="putCurso()"><i

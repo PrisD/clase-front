@@ -1,5 +1,9 @@
+<div>
+    <app-modal-new-curso></app-modal-new-curso>
+</div>
+
 <!-- Tabla de cursos -->
-<table class="table table-hover">
+<table class="table table-hover shadow mt-3 round-table">
     <thead>
         <tr>
             <th>ID</th>
@@ -18,7 +22,7 @@
             <td>{{ curso.fechaInicio | date }}</td>
             <td>{{ curso.fechaFin | date }}</td>
             <td>{{ curso.docente.nombre }}</td>
-            <td>${{ curso.precio.toFixed(2) }}</td>
+            <td>${{ curso.precio}}</td>
             <td>
                 <app-modal-curso [id]="curso.id"></app-modal-curso>
             </td>

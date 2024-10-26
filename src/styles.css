@@ -2,3 +2,7 @@
 a {
     cursor: pointer;
 }
+.round-table {
+    border-radius: 1rem;
+    overflow: hidden;
+}

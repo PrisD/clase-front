@@ -16,6 +16,7 @@ import { ModalCursoComponent } from './components/cursos/modal-curso/modal-curso
 import { EstudianteService } from './services/estudiante.service';
 import { DocenteService } from './services/docente.service';
 import { TemaService } from './services/tema.service';
+import { ModalNewCursoComponent } from './components/cursos/modal-new-curso/modal-new-curso.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { TemaService } from './services/tema.service';
         EstudiantesComponent,
         TemasComponent,
         ModalCursoComponent,
+        ModalNewCursoComponent,
     ],
     imports: [
         BrowserModule, 
