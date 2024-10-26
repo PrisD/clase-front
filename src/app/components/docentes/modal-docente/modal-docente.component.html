@@ -1,0 +1,40 @@
+<div class="modal fade" id="editDocenteModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div *ngIf="docente" class="modal-body">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Docente ID: {{ docente.id }}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form class="m-5">
+                    <div class="form-floating mb-3">
+                        <input [disabled]="!flagEditar" type="text" class="form-control" id="nombre"
+                            [(ngModel)]="docente.nombre" name="nombre">
+                        <label for="nombre">Nombre</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input [disabled]="!flagEditar" type="number" class="form-control" id="legajo"
+                            [(ngModel)]="docente.legajo" name="legajo">
+                        <label for="legajo">Legajo</label>
+                    </div>
+                    <div *ngIf="!flagEditar" class="d-flex flex-column justify-content-center">
+                        <button type="button" class="btn btn-success w-100 mt-3" (click)="toggleEdit()">Editar
+                            docente</button>
+                        <a class="text-decoration-underline w-100 mt-3 text-danger text-center docenter-pointer"
+                            (click)="eliminarDocente()">
+                            <i class="bi bi-trash me-2"></i> Eliminar docente
+                        </a>
+                    </div>
+                    <div data-bs-dismiss="modal" *ngIf="flagEditar" class="d-flex flex-column justify-content-center">
+                        <button type="button" class="btn btn-success w-100 mt-3" (click)="putDocente()"><i
+                                class="bi-check2"></i> Confirmar edición</button>
+                        <a data-bs-dismiss="modal" class="text-decoration-underline w-100 mt-3 text-danger text-center docenter-pointer">
+                            Cancelar edición
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

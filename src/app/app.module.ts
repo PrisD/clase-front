@@ -17,6 +17,12 @@ import { EstudianteService } from './services/estudiante.service';
 import { DocenteService } from './services/docente.service';
 import { TemaService } from './services/tema.service';
 import { ModalNewCursoComponent } from './components/cursos/modal-new-curso/modal-new-curso.component';
+import { ModalNewDocenteComponent } from './components/docentes/modal-new-docente/modal-new-docente.component';
+import { ModalNewEstudianteComponent } from './components/estudiantes/modal-new-estudiante/modal-new-estudiante.component';
+import { ModalEstudianteComponent } from './components/estudiantes/modal-estudiante/modal-estudiante.component';
+import { ModalTemaComponent } from './components/temas/modal-tema/modal-tema.component';
+import { ModalNewTemaComponent } from './components/temas/modal-new-tema/modal-new-tema.component';
+import { ModalDocenteComponent } from './components/docentes/modal-docente/modal-docente.component';
 
 
 @NgModule({
@@ -28,8 +34,14 @@ import { ModalNewCursoComponent } from './components/cursos/modal-new-curso/moda
         DocentesComponent,
         EstudiantesComponent,
         TemasComponent,
-        ModalCursoComponent,
         ModalNewCursoComponent,
+        ModalNewDocenteComponent,
+        ModalNewEstudianteComponent,
+        ModalNewTemaComponent,
+        ModalCursoComponent,
+        ModalDocenteComponent,
+        ModalEstudianteComponent,
+        ModalTemaComponent,
     ],
     imports: [
         BrowserModule, 

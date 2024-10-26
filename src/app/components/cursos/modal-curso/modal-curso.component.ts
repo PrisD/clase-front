@@ -12,8 +12,7 @@ declare var $: any;
   styleUrls: ['./modal-curso.component.css']
 })
 export class ModalCursoComponent implements OnInit {
-  @Input() id!: number;
-  curso!: Curso;
+  @Input() curso!: Curso;
   temas: Tema[] = [];
   docentes: Docente[] = [];
   flagEditar: boolean = false;
@@ -25,18 +24,9 @@ export class ModalCursoComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    if (this.id) {
-      this.selectCurso(this.id);
-    }
     this.getDocentes();
     this.getTemas();
-  }
 
-  selectCurso(id: number): void {
-    this.cursoService.getCurso(id).subscribe((curso: Curso) => {
-      this.curso = curso;
-      this.flagEditar = false; 
-    });
   }
 
   getTemas(): void {
@@ -64,10 +54,12 @@ export class ModalCursoComponent implements OnInit {
     return e1 && e2 ? e1.nombre === e2.nombre : e1 === e2;
   }
   eliminarCurso() {
-    this.cursoService.deleteCurso(this.id).subscribe((response) =>
-    { this.cerrarModal(); })
+    this.cursoService.deleteCurso(this.curso.id).subscribe()
   }
-  cerrarModal() {
-    $('#exampleModal').modal('hide');
+  cancelar() {
+    this.toggleEdit();
+    this.cursoService.getCurso(this.curso.id).subscribe((curso: Curso) => {
+      this.curso = curso;
+    })
   }
 }

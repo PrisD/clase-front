@@ -9,6 +9,8 @@ import { CursoService } from '../../services/curso.service';
 })
 export class CursosComponent {
   cursos: Curso[] = [];
+  selectedCurso!: Curso;
+
   constructor(private cursoService: CursoService) { }
 
   ngOnInit(): void {
@@ -21,5 +23,8 @@ export class CursosComponent {
     });
   }
 
+  openModal(curso: Curso) {
+    this.selectedCurso = curso;
+  }
   
 }

@@ -1,1 +1,31 @@
-<p>docentes works!</p>
+<p>Lista de temas</p>
+<div>
+    <app-modal-new-docente></app-modal-new-docente>
+</div>
+
+<!-- Tabla de docentes -->
+<table class="table table-hover shadow mt-3 round-table" >
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Legajo</th>
+            <th>Info</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let docente of docentes" >
+            <td>{{docente.id}}</td>
+            <td>{{docente.nombre}}</td>
+            <td>{{docente.legajo}}</td>
+            <td>
+                <button type="button" class="btn btn-outline-info rounded-5" (click)="openModal(docente)" data-bs-toggle="modal"
+                    data-bs-target="#editDocenteModal">
+                    <i class="bi bi-info-circle"></i>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<app-modal-docente [docente]="selectedDocente"></app-modal-docente>

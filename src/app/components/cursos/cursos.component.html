@@ -1,3 +1,5 @@
+<p>Lista de cursos</p>
+
 <div>
     <app-modal-new-curso></app-modal-new-curso>
 </div>
@@ -24,8 +26,13 @@
             <td>{{ curso.docente.nombre }}</td>
             <td>${{ curso.precio}}</td>
             <td>
-                <app-modal-curso [id]="curso.id"></app-modal-curso>
+                <button type="button" class="btn btn-outline-info rounded-5" (click)="openModal(curso)" data-bs-toggle="modal"
+                    data-bs-target="#editCursoModal">
+                    <i class="bi bi-info-circle"></i>
+                </button>
             </td>
         </tr>
     </tbody>
 </table>
+
+<app-modal-curso [curso]="selectedCurso"></app-modal-curso>

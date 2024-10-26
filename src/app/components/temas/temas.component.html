@@ -1,1 +1,31 @@
-<p>temas works!</p>
+<p>Lista de temas</p>
+<div>
+    <app-modal-new-tema></app-modal-new-tema>
+</div>
+
+<!-- Tabla de temass -->
+<table class="table table-hover shadow mt-3 round-table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Legajo</th>
+            <th>Info</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let tema of temas">
+            <td>{{tema.id}}</td>
+            <td>{{tema.nombre}}</td>
+            <td>{{tema.descripcion}}</td>
+            <td>
+                <button type="button" class="btn btn-outline-info rounded-5" (click)="openModal(tema)"
+                    data-bs-toggle="modal" data-bs-target="#editTemaModal">
+                    <i class="bi bi-info-circle"></i>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<app-modal-tema [tema]="selectedTema"></app-modal-tema>
