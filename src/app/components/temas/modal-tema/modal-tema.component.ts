@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { TemaService } from '../../../services/tema.service';
 import { Tema } from '../../../model/tema.model';
 
@@ -9,6 +9,7 @@ import { Tema } from '../../../model/tema.model';
 })
 export class ModalTemaComponent {
   @Input() tema!: Tema;
+  @Output() temaActualizado = new EventEmitter<void>();
   flagEditar: boolean = false;
 
   constructor(private temaService: TemaService) { }
@@ -16,6 +17,7 @@ export class ModalTemaComponent {
 
   eliminarTema() {
     this.temaService.deleteTema(this.tema.id).subscribe();
+    this.cerrarModal();
   }
 
   toggleEdit(): void {
@@ -24,6 +26,13 @@ export class ModalTemaComponent {
 
   putTema(): void {
     this.toggleEdit();
-    this.temaService.updateTema(this.tema).subscribe();
+    this.temaService.updateTema(this.tema).subscribe(
+      () => {
+        this.cerrarModal();
+      });;
+  }
+  cerrarModal() {
+    this.flagEditar = false;
+    this.temaActualizado.emit();
   }
 }

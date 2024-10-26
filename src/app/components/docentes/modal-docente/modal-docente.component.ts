@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { DocenteService } from '../../../services/docente.service';
 import { Docente } from '../../../model/docente.model';
 
@@ -9,6 +9,7 @@ import { Docente } from '../../../model/docente.model';
 })
 export class ModalDocenteComponent {
   @Input() docente!: Docente;
+  @Output() docenteActualizado = new EventEmitter<void>();
   flagEditar: boolean = false;
   
   constructor(private docenteService: DocenteService) { }
@@ -16,6 +17,7 @@ export class ModalDocenteComponent {
 
   eliminarDocente() {
     this.docenteService.deleteDocente(this.docente.id).subscribe();
+    this.cerrarModal();
   }
 
   toggleEdit(): void {
@@ -24,6 +26,13 @@ export class ModalDocenteComponent {
 
   putDocente(): void {
     this.toggleEdit();
-    this.docenteService.updateDocente(this.docente).subscribe();
+    this.docenteService.updateDocente(this.docente).subscribe(
+      () => {
+        this.cerrarModal();
+      });
+  }
+  cerrarModal() {
+    this.flagEditar = false;
+    this.docenteActualizado.emit();
   }
 }

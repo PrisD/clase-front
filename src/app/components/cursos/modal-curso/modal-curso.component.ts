@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CursoService } from '../../../services/curso.service';
 import { Curso } from '../../../model/curso.model';
 import { Tema } from '../../../model/tema.model';
@@ -13,6 +13,7 @@ declare var $: any;
 })
 export class ModalCursoComponent implements OnInit {
   @Input() curso!: Curso;
+  @Output() cursoActualizado = new EventEmitter<void>();
   temas: Tema[] = [];
   docentes: Docente[] = [];
   flagEditar: boolean = false;
@@ -47,19 +48,20 @@ export class ModalCursoComponent implements OnInit {
 
   putCurso(): void {
     this.toggleEdit();
-    this.cursoService.updateCurso(this.curso).subscribe();
+    this.cursoService.updateCurso(this.curso).subscribe(
+      () => {
+        this.cerrarModal();
+      });;
   }
-
   compareEntidad(e1: any, e2: any): boolean {
     return e1 && e2 ? e1.nombre === e2.nombre : e1 === e2;
   }
   eliminarCurso() {
     this.cursoService.deleteCurso(this.curso.id).subscribe()
+    this.cerrarModal();
   }
-  cancelar() {
-    this.toggleEdit();
-    this.cursoService.getCurso(this.curso.id).subscribe((curso: Curso) => {
-      this.curso = curso;
-    })
+  cerrarModal() {
+    this.flagEditar = false;
+    this.cursoActualizado.emit();
   }
 }
