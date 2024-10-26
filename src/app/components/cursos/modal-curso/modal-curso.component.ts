@@ -36,7 +36,6 @@ export class ModalCursoComponent implements OnInit {
     this.cursoService.getCurso(id).subscribe((curso: Curso) => {
       this.curso = curso;
       this.flagEditar = false; 
-      console.log(this.curso);
     });
   }
 
@@ -58,7 +57,12 @@ export class ModalCursoComponent implements OnInit {
 
   putCurso(): void {
     this.toggleEdit();
-    console.log('Curso actualizado:', this.curso);
+    this.cursoService.updateCurso(this.curso).subscribe();
   }
+
+  compareEntidad(e1: any, e2: any): boolean {
+    return e1 && e2 ? e1.nombre === e2.nombre : e1 === e2;
+  }
+
 
 }

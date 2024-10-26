@@ -25,18 +25,19 @@
                     </div>
                     <div class="form-floating mb-3">
                         <select [disabled]="!flagEditar" class="form-select" id="docente" [(ngModel)]="curso.docente"
-                            name="docente">
-                            <option *ngFor="let d of docentes" [value]="d">{{ d.nombre }}</option>
+                            name="docente" [compareWith]="compareEntidad">
+                            <option *ngFor="let d of docentes" [ngValue]="d">{{ d.nombre }}</option>
                         </select>
                         <label for="docente">Docente</label>
                     </div>
                     <div class="form-floating mb-3">
                         <select [disabled]="!flagEditar" class="form-select" id="temaDropdown" [(ngModel)]="curso.tema"
-                            name="temaDropdown">
-                            <option *ngFor="let t of temas" [value]="t">{{ t.nombre }}</option>
+                            name="temaDropdown" [compareWith]="compareEntidad">
+                            <option *ngFor="let t of temas" [ngValue]="t">{{ t.nombre }}</option>
                         </select>
                         <label for="temaDropdown">Tema</label>
                     </div>
+
                     <div class="form-floating mb-3">
                         <input [disabled]="!flagEditar" type="number" class="form-control" id="precio"
                             [(ngModel)]="curso.precio" name="precio">
