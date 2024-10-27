@@ -17,7 +17,6 @@ export class ModalEstudianteComponent implements OnInit {
 
   constructor(private estudianteService: EstudianteService, private cursoService : CursoService) { }
   ngOnInit(): void {
-
     this.getCursos();
   }
   

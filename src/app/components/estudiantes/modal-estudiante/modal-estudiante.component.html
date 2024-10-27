@@ -20,6 +20,7 @@
                     </div>
                     <div class="form-floating mb-3">
                         <select [disabled]="!flagEditar" class="form-select" id="curso" [(ngModel)]="estudiante.curso" name="curso">
+                            <option [ngValue]="null">Sin curso asignado</option>
                             <option *ngFor="let curso of cursos" [ngValue]="curso">
                                 {{ curso.tema.nombre }} - {{ curso.docente.nombre }}
                             </option>
