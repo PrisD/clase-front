@@ -1,6 +1,6 @@
 <p>Lista de temas</p>
 <div>
-    <app-modal-new-tema></app-modal-new-tema>
+    <app-modal-new-tema (temaActualizado)="getTemas()"></app-modal-new-tema>
 </div>
 
 <!-- Tabla de temass -->
@@ -9,7 +9,7 @@
         <tr>
             <th>ID</th>
             <th>Nombre</th>
-            <th>Legajo</th>
+            <th>Descripción</th>
             <th>Info</th>
         </tr>
     </thead>

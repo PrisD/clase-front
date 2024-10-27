@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { CursoService } from '../../../services/curso.service';
 import { TemaService } from '../../../services/tema.service';
 import { DocenteService } from '../../../services/docente.service';
@@ -12,6 +12,7 @@ import { Curso } from '../../../model/curso.model';
   styleUrl: './modal-new-curso.component.css'
 })
 export class ModalNewCursoComponent implements OnInit {
+  @Output() cursoActualizado = new EventEmitter<void>();
   fechaInicio: any;
   fechaFin: any;
   docente: any;
@@ -44,12 +45,10 @@ export class ModalNewCursoComponent implements OnInit {
     let curso = new Curso(0, this.tema, this.fechaInicio, this.fechaFin, this.docente, this.precio)
     this.cursoService.addCurso(curso).subscribe(
       (response) => {
-        console.log("Se pudo crear el curso !");
-        console.log(response);        
+        this.cursoActualizado.emit();
       },
       (error) => {
-        console.log(error);
-        
+        this.cursoActualizado.emit();
       }
     )
   }

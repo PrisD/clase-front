@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { DocenteService } from '../../../services/docente.service';
 import { Docente } from '../../../model/docente.model';
 
@@ -8,6 +8,7 @@ import { Docente } from '../../../model/docente.model';
   styleUrl: './modal-new-docente.component.css'
 })
 export class ModalNewDocenteComponent {
+  @Output() docenteActualizado = new EventEmitter<void>();
   nombre: any;
   legajo: any;
 
@@ -17,11 +18,10 @@ export class ModalNewDocenteComponent {
     let docente = new Docente(0, this.nombre, this.legajo)
     this.docenteService.addDocente(docente).subscribe(
       (response) => {
-        console.log("Se creo el docente!");
-        console.log(response);
+        this.docenteActualizado.emit();
       },
       (error) => {
-        console.log(error);
+        this.docenteActualizado.emit();
       }
     )
   }

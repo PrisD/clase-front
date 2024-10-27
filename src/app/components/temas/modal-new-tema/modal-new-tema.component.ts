@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { TemaService } from '../../../services/tema.service';
 import { Tema } from '../../../model/tema.model';
 
@@ -8,6 +8,7 @@ import { Tema } from '../../../model/tema.model';
   styleUrl: './modal-new-tema.component.css'
 })
 export class ModalNewTemaComponent {
+  @Output() temaActualizado = new EventEmitter<void>();
   nombre: any;
   descripcion: any;
 
@@ -17,11 +18,10 @@ export class ModalNewTemaComponent {
     let tema = new Tema(0, this.nombre, this.descripcion)
     this.temaService.addTema(tema).subscribe(
       (response) => {
-        console.log("Se creo el tema!");
-        console.log(response);
+        this.temaActualizado.emit()
       },
       (error) => {
-        console.log(error);
+        this.temaActualizado.emit()
       }
     )
   }
