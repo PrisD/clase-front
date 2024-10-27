@@ -4,7 +4,7 @@
 </div>
 
 <!-- Tabla de estudiantes -->
-<table class="table table-hover shadow mt-3 round-table">
+<table class="table table-hover shadow round-table">
     <thead>
         <tr>
             <th>ID</th>
@@ -30,4 +30,5 @@
     </tbody>
 </table>
 
-<app-modal-estudiante [estudiante]="selectedEstudiante" (estudianteActualizado)="getEstudiantes()"></app-modal-estudiante>
+<app-modal-estudiante [estudiante]="selectedEstudiante"
+    (estudianteActualizado)="getEstudiantes()"></app-modal-estudiante>

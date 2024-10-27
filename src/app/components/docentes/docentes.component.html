@@ -4,7 +4,7 @@
 </div>
 
 <!-- Tabla de docentes -->
-<table class="table table-hover shadow mt-3 round-table" >
+<table class="table table-hover shadow round-table">
     <thead>
         <tr>
             <th>ID</th>
@@ -14,13 +14,13 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let docente of docentes" >
+        <tr *ngFor="let docente of docentes">
             <td>{{docente.id}}</td>
             <td>{{docente.nombre}}</td>
             <td>{{docente.legajo}}</td>
             <td>
-                <button type="button" class="btn btn-outline-info rounded-5" (click)="openModal(docente)" data-bs-toggle="modal"
-                    data-bs-target="#editDocenteModal">
+                <button type="button" class="btn btn-outline-info rounded-5" (click)="openModal(docente)"
+                    data-bs-toggle="modal" data-bs-target="#editDocenteModal">
                     <i class="bi bi-info-circle"></i>
                 </button>
             </td>
