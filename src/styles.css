@@ -1,3 +1,7 @@
+:root {
+    --color-principal: #646464;
+    --color-hover: #323232;
+}
 /* You can add global styles to this file, and also import other style files */
 a {
     cursor: pointer;
@@ -5,4 +9,33 @@ a {
 .round-table {
     border-radius: 1rem;
     overflow: hidden;
+}
+
+.fondo {
+    background-color: var(--color-principal);
+}
+
+.nav-edit {
+    --bs-nav-link-padding-x: 1rem;
+    --bs-nav-link-padding-y: 0.5rem;
+    --bs-nav-link-hover-color: var(--color-hover);
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+
+.boton {
+    background: var(--color-principal);
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.boton:hover {
+    background-color: var(--color-hover) !important;
+    transform: translateY(-2px);
+    cursor: pointer;
 }
