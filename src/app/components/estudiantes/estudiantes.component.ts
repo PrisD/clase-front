@@ -19,7 +19,7 @@ export class EstudiantesComponent implements OnInit {
 
   getEstudiantes() {
     this.estudianteService.getEstudiantes().subscribe(
-      (estudiantes: Estudiante[]) => {
+      (estudiantes: Estudiante[]) => {        
         this.estudiantes = estudiantes;
       }
     )
