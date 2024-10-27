@@ -1,1 +1,33 @@
-<p>estudiantes works!</p>
+<p>Lista de estudiantes</p>
+<div>
+    <app-modal-new-estudiante (estudianteActualizado)="getEstudiantes()"></app-modal-new-estudiante>
+</div>
+
+<!-- Tabla de estudiantes -->
+<table class="table table-hover shadow mt-3 round-table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Fecha Nacimiento</th>
+            <th>Curso</th>
+            <th>Info</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let estudiante of estudiantes">
+            <td>{{estudiante.id}}</td>
+            <td>{{estudiante.nombre}}</td>
+            <td>{{estudiante.fechaNac}}</td>
+            <td>{{estudiante.curso?.id}}</td>
+            <td>
+                <button type="button" class="btn btn-outline-info rounded-5" (click)="openModal(estudiante)"
+                    data-bs-toggle="modal" data-bs-target="#editEstudianteModal">
+                    <i class="bi bi-info-circle"></i>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<app-modal-estudiante [estudiante]="selectedEstudiante" (estudianteActualizado)="getEstudiantes()"></app-modal-estudiante>

@@ -1,1 +1,41 @@
-<p>modal-new-estudiante works!</p>
+<button type="button" class="btn btn-primary w-100 rounded-5 shadow" data-bs-toggle="modal"
+    data-bs-target="#newDocenteModal">
+    <i class="bi-plus-square"></i> Agregar Estudiante
+</button>
+
+<div class="modal fade" id="newDocenteModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Crear un nuevo estudiante</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form class="m-5">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="nombre" [(ngModel)]="nombre" name="nombre">
+                        <label for="nombre">Nombre</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="date" class="form-control" id="fechaNac" [(ngModel)]="fechaNac" name="fechaNac">
+                        <label for="legajo">Fecha Nacimiento</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="curso" [(ngModel)]="curso" name="curso">
+                        <label for="curso">Curso</label>
+                    </div>
+                    <div class="d-flex flex-column justify-content-center">
+                        <button data-bs-dismiss="modal" (click)="postEstudiante()" type="button"
+                            class="btn btn-success w-100 mt-3"><i class="bi-check2"></i>
+                            Agregar Docente</button>
+                        <a data-bs-dismiss="modal"
+                            class="text-decoration-underline w-100 mt-3 text-danger text-center cursor-pointer">
+                            Cancelar
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
