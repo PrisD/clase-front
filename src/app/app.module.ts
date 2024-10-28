@@ -23,6 +23,8 @@ import { ModalEstudianteComponent } from './components/estudiantes/modal-estudia
 import { ModalTemaComponent } from './components/temas/modal-tema/modal-tema.component';
 import { ModalNewTemaComponent } from './components/temas/modal-new-tema/modal-new-tema.component';
 import { ModalDocenteComponent } from './components/docentes/modal-docente/modal-docente.component';
+import { CursoPopoverComponent } from './components/estudiantes/curso-popover/curso-popover.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -42,13 +44,15 @@ import { ModalDocenteComponent } from './components/docentes/modal-docente/modal
         ModalDocenteComponent,
         ModalEstudianteComponent,
         ModalTemaComponent,
+        CursoPopoverComponent,
     ],
     imports: [
         BrowserModule, 
         HttpClientModule, 
         RouterOutlet,
         AppRoutingModule,
-        FormsModule
+        FormsModule,
+        NgbModule
     ],
     providers: [
         CursoService,

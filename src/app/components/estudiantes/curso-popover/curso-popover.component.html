@@ -1,0 +1,23 @@
+<div>
+    <ng-container *ngIf="curso; else sinCurso">
+        <ng-template #popContent>
+            <div>
+                <strong>Tema:</strong> {{ curso.tema.nombre }}<br>
+                <strong>Docente:</strong> {{ curso.docente.nombre }}<br>
+                <strong>Fecha de Inicio:</strong> {{ curso.fechaInicio }}<br>
+                <strong>Fecha de Fin:</strong> {{ curso.fechaFin }}<br>
+                <strong>Precio:</strong> ${{ curso.precio }}
+            </div>
+        </ng-template>
+        <ng-template #popTitle>
+            Información del Curso
+        </ng-template>
+        <button type="button" class="btn btn-outline-secondary" [ngbPopover]="popContent"
+            popoverTitle="Detalles del Curso">
+            {{ curso.id }}
+        </button>
+    </ng-container>
+    <ng-template #sinCurso>
+        <p class="text-muted" style="font-style: italic;">Sin curso</p>
+    </ng-template>
+</div>

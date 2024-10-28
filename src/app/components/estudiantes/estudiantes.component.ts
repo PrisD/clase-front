@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Estudiante } from '../../model/estudiante.model';
 import { EstudianteService } from '../../services/estudiante.service';
+import bootstrap from 'bootstrap';
 
 @Component({
   selector: 'app-estudiantes',
@@ -15,6 +16,7 @@ export class EstudiantesComponent implements OnInit {
   
   ngOnInit(): void {
     this.getEstudiantes();
+    
   }
 
   getEstudiantes() {
@@ -27,4 +29,5 @@ export class EstudiantesComponent implements OnInit {
   openModal(estudiante: Estudiante) {
     this.selectedEstudiante = estudiante;
   }
+  
 }

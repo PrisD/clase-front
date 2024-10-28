@@ -19,15 +19,18 @@
             <td>{{estudiante.id}}</td>
             <td>{{estudiante.nombre}}</td>
             <td>{{estudiante.fechaNac}}</td>
-            <td>{{estudiante.curso?.id}}</td>
             <td>
-                <button type="button" class="btn btn-outline-info rounded-5" (click)="openModal(estudiante)"
+                <app-curso-popover [curso]="estudiante.curso!"></app-curso-popover>
+            </td>
+            <td>
+                <button type="button" class="btn btn-outline rounded-5" (click)="openModal(estudiante)"
                     data-bs-toggle="modal" data-bs-target="#editEstudianteModal">
-                    <i class="bi bi-info-circle"></i>
+                    <i class="bi-info-circle-fill"></i>
                 </button>
             </td>
         </tr>
     </tbody>
 </table>
 
-<app-modal-estudiante [estudiante]="selectedEstudiante" (estudianteActualizado)="getEstudiantes()"></app-modal-estudiante>
+<app-modal-estudiante [estudiante]="selectedEstudiante"
+    (estudianteActualizado)="getEstudiantes()"></app-modal-estudiante>
