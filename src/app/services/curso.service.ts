@@ -33,7 +33,7 @@ export class CursoService {
     return this.httpClient.get<Curso[]>(`${this.backurl}/cursos`);
   }
 
-  getCursosSegunFechaFin(fecha: string): Observable<Curso[]> {
+  getCursosSegunFechaFin(fecha: Date): Observable<Curso[]> {
     return this.httpClient.get<Curso[]>(`${this.backurl}/cursos-fin?fecha=${fecha}`);
   }
 

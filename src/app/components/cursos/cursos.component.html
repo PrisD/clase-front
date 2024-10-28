@@ -1,5 +1,12 @@
-<p>Lista de cursos</p>
-
+<h3>Lista de cursos</h3>
+<div class="position-relative m-2">
+    <label class="form-label">Fecha Fin</label>
+    <button *ngIf="fechaFin" class="btn btn-sm btn-outline-secondary m-1" (click)="clearFechaFin()" style="border: none;">
+        Eliminar filtro  <i class="bi-x-circle"></i> 
+    </button>
+    <input type="date" class="form-control" [(ngModel)]="fechaFin" (change)="getCursosPorFechaFin()">
+    
+</div>
 <div>
     <app-modal-new-curso (cursoActualizado)="getCursos()"></app-modal-new-curso>
 </div>

@@ -10,6 +10,7 @@ import { CursoService } from '../../services/curso.service';
 export class CursosComponent {
   cursos: Curso[] = [];
   selectedCurso!: Curso;
+  fechaFin: Date | undefined;
 
   constructor(private cursoService: CursoService) { }
 
@@ -26,5 +27,16 @@ export class CursosComponent {
   openModal(curso: Curso) {
     this.selectedCurso = curso;
   }
-  
+
+  getCursosPorFechaFin() {
+    this.cursoService.getCursosSegunFechaFin(this.fechaFin!).subscribe(
+      (cursosActivos: Curso[]) => {
+        this.cursos = cursosActivos;
+      }
+    )
+  }  
+  clearFechaFin() {
+    this.fechaFin = undefined;
+    this.getCursos();
+  }
 }
