@@ -9,12 +9,10 @@
                 <strong>Precio:</strong> ${{ curso.precio }}
             </div>
         </ng-template>
-        <ng-template #popTitle>
-            Información del Curso
-        </ng-template>
-        <button type="button" class="btn btn-outline-secondary" [ngbPopover]="popContent"
-            popoverTitle="Detalles del Curso">
-            {{ curso.id }}
+
+        <button type="button" class="btn btn-outline-secondary w-100" [ngbPopover]="popContent"
+            popoverTitle="Curso: {{curso.id}}">
+            {{ curso.tema.nombre }} - {{ curso.docente.nombre }}
         </button>
     </ng-container>
     <ng-template #sinCurso>
