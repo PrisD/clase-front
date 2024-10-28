@@ -34,8 +34,8 @@ export class DocenteService {
     return this.httpClient.get<Docente[]>(`${this.backurl}/docentes`);
   }
 
-  getAlumnosActivos(): Observable<Estudiante[]> {
-    return this.httpClient.get<Estudiante[]>(`${this.backurl}/docente/{id}/alumnos`)
+  getAlumnosActivos(id: number): Observable<Estudiante[]> {
+    return this.httpClient.get<Estudiante[]>(`${this.backurl}/docente/${id}/alumnos`);
   }
 
 }

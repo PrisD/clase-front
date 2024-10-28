@@ -10,6 +10,7 @@
             <th>ID</th>
             <th>Nombre</th>
             <th>Legajo</th>
+            <th>Alumnos Activos</th>
             <th>Info</th>
         </tr>
     </thead>
@@ -18,6 +19,9 @@
             <td>{{docente.id}}</td>
             <td>{{docente.nombre}}</td>
             <td>{{docente.legajo}}</td>
+            <td>
+                <app-docente-popover [docenteId]="docente.id" ></app-docente-popover>
+            </td>
             <td>
                 <button type="button" class="btn btn-outline rounded-5" (click)="openModal(docente)"
                     data-bs-toggle="modal" data-bs-target="#editDocenteModal">

@@ -1,0 +1,21 @@
+<div>
+    <div *ngIf="estudiantes.length > 0; else noEstudiantes">
+        <button (click)="toggleEstudiantes()" class="btn btn-outline-secondary w-100">
+            {{ mostrarEstudiantes ? 'Ocultar Alumnos ' : 'Mostrar Alumnos ' }}
+            <i *ngIf="!mostrarEstudiantes" class="bi-arrows-angle-expand"></i>
+            <i *ngIf="mostrarEstudiantes" class="bi-arrows-angle-contract"></i>
+        </button>
+
+        <div *ngIf="mostrarEstudiantes">
+            <ul class="list-group">
+                <li class="list-group-item" *ngFor="let estudiante of estudiantes">
+                    {{ estudiante.nombre }}
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <ng-template #noEstudiantes>
+        <p class="text-muted">No hay alumnos activos.</p>
+    </ng-template>
+</div>

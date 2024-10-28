@@ -25,6 +25,7 @@ import { ModalNewTemaComponent } from './components/temas/modal-new-tema/modal-n
 import { ModalDocenteComponent } from './components/docentes/modal-docente/modal-docente.component';
 import { CursoPopoverComponent } from './components/estudiantes/curso-popover/curso-popover.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { DocentePopoverComponent } from './components/docentes/docente-popover/docente-popover.component';
 
 
 @NgModule({
@@ -45,6 +46,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
         ModalEstudianteComponent,
         ModalTemaComponent,
         CursoPopoverComponent,
+        DocentePopoverComponent,
     ],
     imports: [
         BrowserModule, 
