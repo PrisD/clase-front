@@ -18,7 +18,6 @@ a {
 
 .fondo {
     background-color: var(--color-principal);
-    animation: fadeInUp 0.5s ease forwards;
 }
 
 .nav-edit {
@@ -51,29 +50,10 @@ a {
     width: 100%;
     overflow: hidden;
     background-color: var(--color-fondo);
-    animation: fadeInUp 0.5s ease forwards;
 }
 
 .table th,
 .table td {
     padding: 1rem;
     text-align: center;
-}
-input,
-button,
-h3,
-h2{
-    animation: fadeInUp 0.5s ease forwards;
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
